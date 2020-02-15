@@ -5,7 +5,7 @@ services:
     command: gunicorn portfolio.wsgi:application --bind 0.0.0.0:8000
     volumes:
         - static_volume:/app/portfolio/static
-        - media_volume:/app/media
+        - media_volume:/app/images
     expose:
       - 8000
     env_file:
@@ -17,7 +17,7 @@ services:
     build: ./nginx 
     volumes:
        - static_volume:/app/portfolio/static
-       - media_volume:/app/media
+       - media_volume:/app/images
     ports:
       - 80:80 
     depends_on:
